@@ -25,6 +25,7 @@ exports.listAllTodos = async (req, res) => {
 
 exports.updateTodosById = async (req, res) => {
   const id = parseInt(req.params.id);
+  console.log("ID "+id)
   const { title, done, priority, notes, date } = req.body;
   console.log('REQUEST BODY KEYS'+Object.keys(req.body))
   let column = Object.keys(req.body)[0]
