@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gnome ToDo</title>
+</head>
+
+<body>
+    
+    <div class="app">
+        <div id="tasks" class="list"></div>
+        <form class="input-container">
+            <span>+</span>
+            <input class="input-container__input"  type="text" placeholder="New Task..." >
+        </form>
+    </div>
+        <footer class="actionbar">
+            <div class="actionbar__main">
+              <button class="actionbar__show-toggle">Show Done Tasks</button>
+              
+            </div>
+            <button class="actionbar__clear-all">Clear All Tasks</button>
+          </footer>
+   
+</body>
+<script src="main.js"></script>
+<link rel="stylesheet" href="css/vars.css" />
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/app.css" />
+<link rel="stylesheet" href="css/actionbar.css" />
+
+</html>

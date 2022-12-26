@@ -1,0 +1,2 @@
+INSERT INTO
+insert into todos values ('1',false,'first todo','notes 1','2022-12-01',1,false);
