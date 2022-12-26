@@ -1,0 +1,6 @@
+{
+    "standard.autoFixOnSave": true,
+    "standard.enableGlobally": true,
+    "standard.run": "onType",
+    "standard.trace.server": "verbose"
+}

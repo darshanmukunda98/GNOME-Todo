@@ -1,4 +1,4 @@
-export async function fetchAllTodos() {
+/* export async function fetchAllTodos() {
   const url = 'http://localhost:3001/api/todos';
   const response = await fetch(url);
   const data = await response.json();
@@ -59,3 +59,4 @@ export async function deleteAllTodos() {
 
   return result;
 }
+ */
