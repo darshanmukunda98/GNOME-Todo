@@ -1,17 +1,6 @@
-// import {
-//   fetchAllTodos,
-//   postTodo,
-//   updateTodo,
-//   deletedById,
-//   deleteAllTodos
-// } from './fetch.js';
 
+(async ()=>{
 
-
-let toggleDoneState = false;
-const priorities = ['None', 'High', 'Medium', 'Low'];
-//let data = fetchDatafromLocalStorage();
-let data;
 async function fetchDatafromDB() {
   const url = 'http://localhost:3000/api/todos';
   const response = await fetch(url);
@@ -71,9 +60,16 @@ async function deleteAllTodos() {
 
   return result;
 }
-data = fetchDatafromDB().then((data) => {
+
+  let toggleDoneState = false;
+  const priorities = ['None', 'High', 'Medium', 'Low'];
+  //let data = fetchDatafromLocalStorage();
+  let data;
+data = await fetchDatafromDB()
+console.log(data)
   /* console.log(data); */ renderTasks(data);
-});
+
+
 //renderTasks(data);
 startApp();
 toggleFooter();
@@ -128,10 +124,10 @@ function createTodoItem(todoTitle) {
 // renderTodoItem(todoItem) // render todoitem
 
 // input.value = ''
-async function storeCreateRender(input) {
+function storeCreateRender(input) {
   //let todoItem = createTodoItem(input);
   console.log('INPUT ' + input);
-  let res = await postTodo({ title: input });
+  let res = postTodo({ title: input });
   console.log('RES ' + res);
   //storeTodoItem(todoItem);
   let todoItem = res.body.todo;
@@ -155,7 +151,7 @@ function storeTodoItem(todoItem) {
   localStorage.setItem('data', JSON.stringify(data));
 }
 
-async function createTodoItemElement(todoItem) {
+function createTodoItemElement(todoItem) {
   //console.log(todoItem)
   const id = todoItem.id;
   const taskForm = document.createElement('div');
@@ -172,9 +168,9 @@ async function createTodoItemElement(todoItem) {
   return taskForm;
 }
 
-async function renderTodoItem(todoItemElement) {
+function renderTodoItem(todoItemElement) {
   const tasks = document.querySelector('.list');
-  tasks.appendChild(await todoItemElement);
+  tasks.appendChild(todoItemElement);
 }
 
 function createTodoFields(todoItem) {
@@ -220,7 +216,7 @@ function createTitleField(todoItem, event) {
   return taskTitle;
 }
 
-async function editTodoTitle(event) {
+function editTodoTitle(event) {
   const parent = event.target.parentNode.parentNode.parentNode;
   // const [todo] = data.filter((x) => x.id === Number(parent.id)); // use find() instead of filter
   // todo.title = event.target.value;
@@ -473,3 +469,4 @@ function toggleFooter() {
   toggleDoneTasks();
   toggleClearButton();
 }
+})()
